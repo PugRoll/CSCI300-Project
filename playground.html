@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="styles.css">
+        <script type="text/javascript" src="playground.js"></script>
+        <title>Title Title Title</title>
+    </head>
+    <!--This is a comment -->
+    <body>
+        <table>
+            <div>
+                <td>
+                    <p>Month:
+                        <span id="month">-99</span>
+                    </p>
+                </td>
+                <td>
+                    <input type="button" value="generateMonth" onclick="makeMonth()">
+                    </td>
+            </div>
+
+            <div>
+                <tr>
+                    <td>
+                        <p>Day:
+                            <span id="day">-99</span>
+                        </p>
+                    </td>
+                    <td>
+                        <input type="button" value="generateDay" onclick="makeDay()">
+                    </td> 
+                </tr>
+            </div>
+        </table>
+        <input type="button" value="validateDate" onclick="validateDate()">
+        <p>Is a valid Date: <span id="isValid">no</span></p>
+    </body>
+
+</html>
+    
