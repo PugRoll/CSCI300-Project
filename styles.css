@@ -11,7 +11,7 @@ h1 {
 }
 div {
     justify-content: center;
-    text-align: center;
+    text-align: left;
 }
 
 
@@ -19,11 +19,9 @@ nav {
     padding: 5px;
     margin: 0;
     background-color:var(--gray-background) ;
-
 }
 
 nav a{
-    
     font-size: 20pt;
     color: white;
     margin: 35px; 
@@ -55,6 +53,7 @@ table {
     margin-right: auto;
 }
 td {
+    text-align: left;
     border: 1px solid grey;
     padding: 5px;
 
@@ -66,7 +65,5 @@ form {
 button {
     margin: 5px;
 }
-
-
 
 
