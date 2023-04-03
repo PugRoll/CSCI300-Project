@@ -3,7 +3,10 @@
     --gray-background: #111;
 }
 
-
+body {
+    font: Arial, Helvetica, sans-serif,
+    
+}
 
 h1 {
     justify-content: center;
@@ -16,22 +19,20 @@ div {
 
 
 nav {
-    padding: 5px;
-    margin: 0;
     background-color:var(--gray-background) ;
 }
 
 nav a{
     font-size: 20pt;
     color: white;
-    margin: 35px; 
+    margin: 20px; 
     text-decoration: none;
     display: inline-block;
 }
 nav a:hover {
-    background-color: blue;
     color: white;
-    padding: 10px;
+    padding: 0px;
+    margin: 20px;
     text-decoration: underline;
 }
 
@@ -43,7 +44,7 @@ header {
 
 
 img {
-    height:100px;
+    height: 100px;
     width:100px;
 }
 table {
@@ -54,16 +55,23 @@ table {
 }
 td {
     text-align: left;
-    border: 1px solid grey;
     padding: 5px;
-
+    width: 25em;
 }
+
+tr {
+    width: 50%;
+    height: auto;
+}
+
 form {
     text-decoration: none; 
     text-align: center;
 }
-button {
-    margin: 5px;
+.button{
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
