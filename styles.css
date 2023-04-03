@@ -1,4 +1,3 @@
-
 :root {
     --gray-background: #111;
 }
@@ -72,6 +71,15 @@ form {
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
+}
+
+
+#price_value {
+    text-decoration: underline;
+
+}
+#add_button {
+    background-color: pink;
 }
 
 
