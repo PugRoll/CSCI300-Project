@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function loadBooks() {
 function addToCart(price) {
     cartPrice += price;
     window.alert(cartPrice);
+    document.getElementById("currPrice").innerHTML = "$" + (Math.round(cartPrice * 100) / 100).toFixed(2);;
 }
 //Let's create a function to create books
 function createNewBook(title, author, img_src, description, bookPrice) {
