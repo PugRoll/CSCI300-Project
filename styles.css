@@ -23,6 +23,9 @@ div {
     width: 25%;
     padding: 10px;
     padding-left: 20px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
