@@ -42,17 +42,40 @@ document.addEventListener("DOMContentLoaded", function loadBooks() {
 //Quick function to total the price of the cart
 function addToCart(price) {
     cartPrice += price;
-    window.alert(cartPrice);
-    document.getElementById("currPrice").innerHTML = "$" + (Math.round(cartPrice * 100) / 100).toFixed(2);;
+    console.log(cartPrice);
 }
 //Let's create a function to create books
 function createNewBook(title, author, img_src, description, bookPrice) {
     var newBook = document.createElement('tr');
     newBook.innerHTML += "<td><img src=".concat(img_src, "></td>");
-    //Add the title, author and description to the new book 
-    newBook.innerHTML +=
-        //Hard Coded HTML because somebody let me on the keyboard today
-    //  //TODO: Make this not ugly please
-        "<td>\n     <p>Title: ".concat(title, "</p>\n <p>Author: ").concat(author, "</p>\n <p>Description: ").concat(description, "</p>\n <span id=\"price_value\">$").concat(bookPrice, "</span>\n <input type=\"button\" value=\"Add To Cart\" id=\"add_button\" onclick=\"addToCart(").concat(bookPrice, ")\">\n </td>");
+    //Create a new element and div to house the information
+    var td = document.createElement('td');
+    var infoDiv = document.createElement('div');
+    infoDiv.id = "info_div";
+    infoDiv.innerHTML += "<p>Title: ".concat(title, "</p>");
+    infoDiv.innerHTML += "<p>Author: ".concat(author, "</p>");
+    infoDiv.innerHTML += "<p>Description: ".concat(description, "</p>");
+    //Create a span for the bookprice and a button to add to cart
+    var priceDiv = document.createElement('div');
+    var price_value = document.createElement('span');
+    price_value.id = "price_value";
+    price_value.innerText = "$".concat(bookPrice);
+    //Create an element to have the input button type
+    var addToCartButton = document.createElement('input');
+    addToCartButton.id = "add_button";
+    addToCartButton.setAttribute("type", "button");
+    addToCartButton === null || addToCartButton === void 0 ? void 0 : addToCartButton.addEventListener('click', function handleClick(event) {
+        cartPrice += Math.round(bookPrice * 100) / 100; //Ensure only 2 decimal places
+        var DOMcartPrice = document.getElementById("currPrice");
+        DOMcartPrice.innerText = cartPrice.toString();
+        console.log("Current price of cart is: ".concat(cartPrice));
+    });
+    addToCartButton.setAttribute("value", "Add to Cart");
+    priceDiv.appendChild(price_value);
+    priceDiv.appendChild(addToCartButton);
+    //Append the divs
+    td.appendChild(infoDiv);
+    td.appendChild(priceDiv);
+    newBook.appendChild(td);
     return newBook; //return the object
 }
