@@ -1,5 +1,3 @@
-"use strict";
-//Object.defineProperty(exports, "__esModule", { value: true });
 //Test books for now
 var book1 = {
     "title": "myTitle",
@@ -27,6 +25,28 @@ var book2 = {
         "comedy"
     ]
 };
+
+//Create a variable for the url to query local server for json data
+const localURL = "http://127.0.0.1:8080/books.json";
+
+//query the local server, write up soon, pinky promise
+async function queryLocalServer(url) {
+    //Query the server using the data
+    fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+        var bookTable = document.getElementById("myTable");
+        for (const book of data.items) {
+           bookTable.appendChild(createNewBook(book.title, book.author, book.img_src, book.Description, book.price)); 
+        }
+    })
+    .catch(console.error);
+    const response2 = await fetch(url);
+    const jsonData = await response2.json();
+    console.log(jsonData);
+}
+
+
 //Value to hold the value of the cart
 var cartPrice = 0;
 //Array to hold the books
@@ -34,10 +54,7 @@ var books = [book1, book2];
 //Lambda to load the books when the document is loaded
 document.addEventListener("DOMContentLoaded", function loadBooks() {
     var bookTable = document.getElementById("myTable");
-    for (var i in books) {
-        //Put this new book into the table
-        bookTable.appendChild(createNewBook(books[i].title, books[i].author, books[i].img_src, books[i].description, books[i].price));
-    }
+    queryLocalServer(localURL); 
 });
 //Quick function to total the price of the cart
 function addToCart(price) {
@@ -68,6 +85,9 @@ function createNewBook(title, author, img_src, description, bookPrice) {
         cartPrice += Math.round(bookPrice * 100) / 100; //Ensure only 2 decimal places
         var DOMcartPrice = document.getElementById("currPrice");
         DOMcartPrice.innerText = cartPrice.toString();
+
+        localStorage.setItem("cartPrice", cartPrice.toString());
+        document.cookie = "currPrice=".concat(cartPrice, "; expires=Wed, 31 May 2023 00:00:00 UTC; path =./");
         console.log("Current price of cart is: ".concat(cartPrice));
     });
     addToCartButton.setAttribute("value", "Add to Cart");

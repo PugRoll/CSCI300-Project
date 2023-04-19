@@ -1,0 +1,35 @@
+{
+    "items" : [
+        {
+            "id" : 1,
+            "title" : "myTitle",
+            "author" : "An Author",
+            "Description" : "lorem ipsum",
+            "date-Released" : 2023,
+            "price" : 19.99,
+            "img_src" : "https://i5.walmartimages.com/asr/c7247ec9-4856-49af-a992-d4de4455b905.8efbdeb454e2540b52c957b9b94cfff2.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff",
+            "tags" : [
+                "fiction",
+                "romance",
+                "comedy"
+                ]
+        },
+        {
+            "id" : 2,
+            "title" : "myTitle2",
+            "author" : "An Author2",
+            "Description" : "lorem ipsum2",
+            "date-Released" : 2023,
+            "price" : 14.99,
+            "img_src" : "https://i5.walmartimages.com/asr/c7247ec9-4856-49af-a992-d4de4455b905.8efbdeb454e2540b52c957b9b94cfff2.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff",
+            "tags" : [
+                "fiction",
+                "romance",
+                "comedy"
+                ]
+        }
+    ] 
+
+
+
+}
