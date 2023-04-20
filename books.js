@@ -50,7 +50,6 @@ async function queryLocalServer(url) {
 //Value to hold the value of the cart
 var cartPrice = 0;
 //Array to hold the books
-var books = [book1, book2];
 //Lambda to load the books when the document is loaded
 document.addEventListener("DOMContentLoaded", function loadBooks() {
     var bookTable = document.getElementById("myTable");
