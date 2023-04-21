@@ -1,31 +1,3 @@
-//Test books for now
-var book1 = {
-    "title": "myTitle",
-    "author": "An Author",
-    "Description": "lorem ipsum",
-    "date-Released": 2023,
-    "price": 19.99,
-    "img_src": "https://i5.walmartimages.com/asr/c7247ec9-4856-49af-a992-d4de4455b905.8efbdeb454e2540b52c957b9b94cfff2.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff",
-    "tags": [
-        "fiction",
-        "romance",
-        "comedy"
-    ]
-};
-var book2 = {
-    "title": "myTitle2",
-    "author": "An Author2",
-    "Description": "lorem ipsum2",
-    "date-Released": 2023,
-    "price": 14.99,
-    "img_src": "https://i5.walmartimages.com/asr/c7247ec9-4856-49af-a992-d4de4455b905.8efbdeb454e2540b52c957b9b94cfff2.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff",
-    "tags": [
-        "fiction",
-        "romance",
-        "comedy"
-    ]
-};
-
 //Create a variable for the url to query local server for json data
 const localURL = "http://127.0.0.1:8080/books.json";
 
@@ -37,7 +9,9 @@ async function queryLocalServer(url) {
     .then((data) => {
         var bookTable = document.getElementById("myTable");
         for (const book of data.items) {
-           bookTable.appendChild(createNewBook(book.title, book.author, book.img_src, book.Description, book.price)); 
+           bookTable.appendChild(createNewBook(book.title, book.author, 
+               book.img_src, book.Description, 
+               book.price, book.id, false)); 
         }
     })
     .catch(console.error);
@@ -49,6 +23,7 @@ async function queryLocalServer(url) {
 
 //Value to hold the value of the cart
 var cartPrice = 0;
+var bookIDs= [];
 //Array to hold the books
 //Lambda to load the books when the document is loaded
 document.addEventListener("DOMContentLoaded", function loadBooks() {
@@ -61,7 +36,8 @@ function addToCart(price) {
     console.log(cartPrice);
 }
 //Let's create a function to create books
-function createNewBook(title, author, img_src, description, bookPrice) {
+export function createNewBook(title, author, img_src, 
+    description, bookPrice, book_id, b_remove) {
     var newBook = document.createElement('tr');
     newBook.innerHTML += "<td><img src=".concat(img_src, "></td>");
     //Create a new element and div to house the information
@@ -80,21 +56,38 @@ function createNewBook(title, author, img_src, description, bookPrice) {
     var addToCartButton = document.createElement('input');
     addToCartButton.id = "add_button";
     addToCartButton.setAttribute("type", "button");
-    addToCartButton === null || addToCartButton === void 0 ? void 0 : addToCartButton.addEventListener('click', function handleClick(event) {
-        cartPrice += Math.round(bookPrice * 100) / 100; //Ensure only 2 decimal places
-        var DOMcartPrice = document.getElementById("currPrice");
-        DOMcartPrice.innerText = cartPrice.toString();
+    addToCartButton === null || addToCartButton === void 0 ? void 0 : 
+        addToCartButton.addEventListener('click', function handleClick(event) {
+            cartPrice += Math.round(bookPrice * 100) / 100; //Ensure only 2 decimal places
+            var DOMcartPrice = document.getElementById("currPrice");
+            DOMcartPrice.innerText = cartPrice.toFixed(2).toString();
+            bookIDs.push(book_id);
 
-        localStorage.setItem("cartPrice", cartPrice.toString());
-        document.cookie = "currPrice=".concat(cartPrice, "; expires=Wed, 31 May 2023 00:00:00 UTC; path =./");
-        console.log("Current price of cart is: ".concat(cartPrice));
-    });
+            //Push id and cart price to localStorage
+            localStorage.setItem("cartPrice", cartPrice.toString());
+            localStorage.setItem("ids", bookIDs.toString());
+        });
+
+
     addToCartButton.setAttribute("value", "Add to Cart");
     priceDiv.appendChild(price_value);
     priceDiv.appendChild(addToCartButton);
     //Append the divs
     td.appendChild(infoDiv);
-    td.appendChild(priceDiv);
+    td.appendChild(priceDiv); 
+    //Evaluate if an remove button should be added
+    if(b_remove) {    
+        var removeButton = document.createElement("input");
+        removeButton.id = "remove_button";
+        removeButton.setAttribute("type", "button");
+        removeButton.addEventListener("click", function handleClick(event) {
+            cartPrice -= Math.round(bookPrice * 100) / 100;
+        });
+        td.appendChild(removeButton);
+
+    }
     newBook.appendChild(td);
     return newBook; //return the object
 }
+
+
