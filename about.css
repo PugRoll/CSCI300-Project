@@ -30,3 +30,29 @@ header {
     margin-left: auto;
     margin-right: auto;
 }
+
+#aboutUs{
+    font-size: larger;
+    padding: 25px;
+    text-align: center;
+    background-color:bisque;
+}
+
+#container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+main {
+    
+    flex: 0 1 60%;
+    text-align: center;
+    font-size: larger;
+    border:5px;
+    padding:50px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: grey;
+}
