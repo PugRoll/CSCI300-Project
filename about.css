@@ -26,7 +26,7 @@ nav a:hover {
 }
 
 header {
-    padding: 5px;
+    padding: 0px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -47,12 +47,12 @@ header {
 
 main {
     
-    flex: 0 1 60%;
+    flex: 0 1 50%;
     text-align: center;
     font-size: larger;
     border:5px;
     padding:50px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
     background-color: grey;
 }
