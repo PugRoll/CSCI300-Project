@@ -64,7 +64,7 @@ export function createNewBook(title, author, img_src,
             bookIDs.push(book_id);
 
             //Push id and cart price to localStorage
-            localStorage.setItem("cartPrice", cartPrice.toString());
+            localStorage.setItem("cartPrice", cartPrice.toFixed(2).toString());
             localStorage.setItem("ids", bookIDs.toString());
         });
 
