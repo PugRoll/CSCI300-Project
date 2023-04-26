@@ -3,23 +3,22 @@ import {createNewBook } from './books.js';
 "use strict";
 var cartPrice = 0;
 document.addEventListener("DOMContentLoaded", function loadPrice() {
-    var price = localStorage.getItem("cartPrice")
-    var value = document.cookie
-        .split("; ");
-    var pattern = /[\d]|[\.]/;
-    var price = "";
-    for (var i = 0; i < value[0].length; i++) {
-        if (pattern.test(value[0].charAt(i))) {
-            price += value[0].charAt(i);
-        }
+    //Check to make sure cart price is not null and handle it if it is.
+    if(localStorage.getItem("cartPrice") === null ) {
+       var price = 0.00; 
+    }
+    else {
+        var price = localStorage.getItem("cartPrice")
     }
     var p = document.getElementById("CartPrice").textContent = "$".concat(price);
     console.log("Price of cart on page load: " + price);
     //Crate an array with the ids
-    var ids = localStorage.getItem("ids").split(",")
+    var ids = localStorage.getItem("ids").split(",");
 
     createBookWithId(ids);
     cartPrice = parseFloat(price);
+    
+
     console.log(price);
 });
 
@@ -33,7 +32,7 @@ function createBookWithId(ids) {
         fetch(url)
         .then((response) => response.json())
         .then((data) => {
-            var bookTable = document.getElementById("cart-table");
+            var bookTable = document.getElementById("cart-table"); 
             var i = 0;
             //Loop through collection of books and display only the books that were added to the cart
             for(const book of data.items) {  
@@ -45,7 +44,6 @@ function createBookWithId(ids) {
                    } 
                 }
             }
-
 
         })
         .catch(console.error); 
