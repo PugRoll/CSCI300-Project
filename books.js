@@ -11,7 +11,7 @@ async function queryLocalServer(url) {
         for (const book of data.items) {
            bookTable.appendChild(createNewBook(book.title, book.author, 
                book.img_src, book.Description, 
-               book.price, book.id, false)); 
+               book.price, book.id, false, 1)); 
         }
     })
     .catch(console.error);
@@ -37,7 +37,7 @@ function addToCart(price) {
 }
 //Let's create a function to create books
 export function createNewBook(title, author, img_src, 
-    description, bookPrice, book_id, b_remove) {
+    description, bookPrice, book_id, b_remove, quantity) {
     var newBook = document.createElement('tr');
     newBook.innerHTML += "<td><img src=".concat(img_src, "></td>");
     //Create a new element and div to house the information
@@ -80,10 +80,17 @@ export function createNewBook(title, author, img_src,
         var removeButton = document.createElement("input");
         removeButton.id = "remove_button";
         removeButton.setAttribute("type", "button");
+        removeButton.value = "remove";
         removeButton.addEventListener("click", function handleClick(event) {
             cartPrice -= Math.round(bookPrice * 100) / 100;
         });
         td.appendChild(removeButton);
+
+        //Add the quantity to the object
+        const quantityElement = document.createElement("span");
+        quantityElement.id = "quantity";
+        quantityElement.innerHTML = `Quantity: ${quantity}`;
+        td.appendChild(quantityElement)
 
     }
     newBook.appendChild(td);
