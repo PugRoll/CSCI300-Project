@@ -80,12 +80,44 @@ form {
     text-align: center;
 }
 
+footer {
+    position: fixed;
+    left:0px;
+    bottom: 0;
+    padding-bottom: 10px;
+    height:30px;
+    width:100%;
+    justify-content: center;
+    
+}
+
 .button{
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
 }
 
+#cart {
+    position: fixed;
+    right: 0;
+    padding-right: 60px;
+}
+
+#playground-button {
+    padding: 8px 16px;
+    border: none;
+    text-align: center;
+    justify-content: center;
+    display: inline-block;
+    margin-left:auto;
+    margin-right: auto;
+    transition-duration: 0.4s; 
+}
+
+#playground-button:hover {
+    background-color: cornflowerblue;
+    color: white;
+}
 
 #price_value {
     text-decoration: underline;
