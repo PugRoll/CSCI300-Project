@@ -39,7 +39,9 @@ function addToCart(price) {
 export function createNewBook(title, author, img_src, 
     description, bookPrice, book_id, b_remove, quantity) {
     var newBook = document.createElement('tr');
-    newBook.innerHTML += "<td><img src=".concat(img_src, "></td>");
+    var imgDiv = document.createElement('div');
+    imgDiv.innerHTML += "<td><img src=".concat(img_src, "></td>");
+    newBook.appendChild(imgDiv);
     //Create a new element and div to house the information
     var td = document.createElement('td');
     var infoDiv = document.createElement('div');
@@ -82,15 +84,19 @@ export function createNewBook(title, author, img_src,
         removeButton.setAttribute("type", "button");
         removeButton.value = "remove";
         removeButton.addEventListener("click", function handleClick(event) {
-            cartPrice -= Math.round(bookPrice * 100) / 100;
-            document.innerHTML = cartPrice;
+            cartPrice = localStorage.getItem("cartPrice");
+            cartPrice = (quantity == 0) ? cartPrice : cartPrice - Math.round(bookPrice * 100) / 100;
+            localStorage.setItem("cartPrice", cartPrice);
+            document.getElementById("CartPrice").innerText = cartPrice.toString();
             if(quantity > 0){
             quantity-=1;
             quantityElement.innerHTML = `Quantity: ${quantity}`;
             }
-            else if(quantity <= 1){
+            if(quantity == 0){
                 td.innerHTML="";
-                bookTable.img_src = "";
+                newBook.removeChild(td);
+                newBook.removeChild(imgDiv);
+                return null;
             }
         });
         td.appendChild(removeButton);

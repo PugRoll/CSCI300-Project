@@ -34,14 +34,20 @@ function createBookWithId(ids) {
         .then((data) => {
             var bookTable = document.getElementById("cart-table"); 
             var i = 0;
-            const quantity = {};
-            console.log(quantity);
+            let quantity = {};
+            console.log("Quantity: " + quantity);
+            if(ids === null) {
+                quantity[0];
+            }
+
             const arr = [...new Set(ids)]; //Create an array that removes all duplicates
 
             //Get amount of occurences and store in an array
             const arr2 = ids.map(Number);
+            console.log(arr2);
+
             for(var num of arr2) {
-                quantity[num] = quantity[num] ? quantity[num] + 1 : 1;
+               quantity[num] = quantity[num] ? quantity[num] + 1 : 1;
             }
             console.log(arr.sort());
             //Loop through collection of books and display only the books that were added to the cart
@@ -49,14 +55,15 @@ function createBookWithId(ids) {
                 for(var i = 0; i < arr.length; i++) {
                    if(JSON.stringify(book.id).includes(arr[i].toString())) { 
                        console.log(book.title + " added");
+                       console.log(i);
+                       console.log(quantity[i + 1]);
                        bookTable.appendChild(createNewBook(book.title, book.author, book.img_src,
-                                        book.Description, book.price, book.id, true, quantity[i + 1]));
+                                        book.Description, book.price, book.id, true, quantity[i]));
                        i += quantity[i];
                    } 
                     
                 }
             }
-            console.log(quantity[1], quantity[2], quantity[3], quantity[4]);
         })
         .catch(console.error); 
     })();
