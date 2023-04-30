@@ -9,3 +9,61 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+#cart {
+    position: absolute;
+    right: 1px;
+    padding-right: 60px;
+}
+#footer-ul {
+    list-style-type: none;    
+    float: left; 
+    display: table;
+    width: 33%;
+}
+#footer-ul li {
+    display: inline;
+}
+#footer-ul a {
+    text-decoration: underline;
+    color: var(--muted-white);
+    padding: 5px;
+}
+
+#social-fav {
+    text-decoration: none;
+    float: center;
+    width: 5.3%;
+    height: 5.3%;
+}
+
+footer {
+    background-color: var(--gray-background);
+    position: fixed;
+    left:0px;
+    bottom: 0;
+    padding-bottom: 5px;
+    height:40px;
+    width:100%;
+    margin-bottom: 10px;
+}
+
+nav {
+    background-color:var(--gray-background) ;
+}
+#footer-nav {
+    color:white;
+}
+nav a{
+    font-size: 20pt;
+    color: white;
+    margin: 20px; 
+    text-decoration: none;
+    display: inline-block;
+}
+nav a:hover {
+    color: white;
+    padding: 0px;
+    margin: 20px;
+    text-decoration: underline;
+}

@@ -14,7 +14,8 @@ h1 {
 }
 
 nav {
-    background-color:var(--gray-background) ;
+    background-color:var(--gray-background);
+    color: white;
 }
 
 nav a{
@@ -113,5 +114,45 @@ form {
     border: 2px solid red;
  }
 
+ #cart {
+    position: absolute;
+    right: 1px;
+    padding-right: 60px;
+}
 
+#footer-nav {
+    color:white;
+}
 
+#footer-ul {
+    list-style-type: none;    
+    float: left; 
+    display: table;
+    width: 33%;
+}
+#footer-ul li {
+    display: inline;
+}
+#footer-ul a {
+    text-decoration: underline;
+    color: var(--muted-white);
+    padding: 5px;
+}
+
+#social-fav {
+    text-decoration: none;
+    float: center;
+    width: 5.3%;
+    height: 5.3%;
+}
+
+footer {
+    background-color: var(--gray-background);
+    position: fixed;
+    left:0px;
+    bottom: 0;
+    padding-bottom: 5px;
+    height:40px;
+    width:100%;
+    margin-bottom: 10px;
+}

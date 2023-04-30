@@ -92,8 +92,6 @@ footer {
     height:40px;
     width:100%;
     margin-bottom: 10px;
-    
-    
 }
 
 .button{
@@ -103,8 +101,8 @@ footer {
 }
 
 #cart {
-    position: fixed;
-    right: 0;
+    position: absolute;
+    right: 1px;
     padding-right: 60px;
 }
 

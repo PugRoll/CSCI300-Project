@@ -82,7 +82,7 @@ export function createNewBook(title, author, img_src,
         removeButton.setAttribute("type", "button");
         removeButton.value = "remove";
         removeButton.addEventListener("click", function handleClick(event) {
-            cartPrice -= Math.round(bookPrice * 100) / 100;
+            cartPrice -= Math.round(bookPrice * 100) / 100;  
         });
         td.appendChild(removeButton);
 

@@ -2,58 +2,58 @@
     "items" : [
         {
             "id" : 1,
-            "title" : "myTitle",
-            "author" : "An Author",
-            "Description" : "lorem ipsum",
-            "date-Released" : 2023,
+            "title" : "Harry Potter and The Sorcerer's Stone",
+            "author" : "J. K. Rowling",
+            "Description" : "Harry Potter is a normal boy until he finds out he is a Wizard.",
+            "date-Released" : 1997,
             "price" : 19.99,
-            "img_src" : "https://i5.walmartimages.com/asr/c7247ec9-4856-49af-a992-d4de4455b905.8efbdeb454e2540b52c957b9b94cfff2.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff",
+            "img_src" : "https://m.media-amazon.com/images/I/51v1aAlA9xL._SX318_BO1,204,203,200_.jpg",
             "tags" : [
-                "fiction",
-                "romance",
-                "comedy"
+                "Drama",
+                "Magic",
+                "Fiction"
                 ]
         },
         {
             "id" : 2,
-            "title" : "myTitle2",
-            "author" : "An Author2",
-            "Description" : "lorem ipsum2",
-            "date-Released" : 2023,
+            "title" : "Holes",
+            "author" : "Louis Sachar",
+            "Description" : "This book centers on Stanley Yelnats, who is sent to Camp Green Lake, a correctional boot camp in a desert in Texas, after being falsely accused of theft",
+            "date-Released" : 1998,
             "price" : 10.99,
-            "img_src" : "https://i5.walmartimages.com/asr/f78dab81-b947-4a65-9698-10945b8067e1_1.65a3fcfa928482b264e9555328cf90d5.jpeg",
+            "img_src" : "https://m.media-amazon.com/images/I/41D198rl3yL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
             "tags" : [
-                "fiction",
-                "romance",
-                "fantasy"
+                "Drama",
+                "Fiction",
+                "Mystery"
                 ]
         },
         {
             "id" : 3,
-            "title" : "myTitle2",
-            "author" : "An Author2",
-            "Description" : "lorem ipsum2",
-            "date-Released" : 2023,
+            "title" : "Fifty Shades of Grey",
+            "author" : "EL James",
+            "Description" : "Fifty Shades of Grey is a 2011 erotic romance novel by British author E. L. James.",
+            "date-Released" : 2011,
             "price" : 25.99,
-            "img_src" : "http://img2.imagesbn.com/p/9780786940233_p0_v1_s260x420.jpg",
+            "img_src" : "https://d3525k1ryd2155.cloudfront.net/h/255/375/549375255.0.m.jpg",
             "tags" : [
-                "fiction",
-                "romance",
-                "comedy"
+                "Fiction",
+                "Romance",
+                "Comedy"
                 ]
         },
         {
             "id" : 4,
-            "title" : "myTitle2",
-            "author" : "An Author2",
-            "Description" : "lorem ipsum2",
-            "date-Released" : 2023,
+            "title" : "Twilight",
+            "author" : "Stephenie Meyer",
+            "Description" : "Twilight is a series of four fantasy romance novels, two companion novels, and one novella written by American author Stephenie Meyer",
+            "date-Released" : 2005,
             "price" : 15.99,
-            "img_src" : "https://animenewsplus.net/wp-content/uploads/2021/04/Light-Novel-86-Eighty-Six-Volume-1-1.jpg",
+            "img_src" : "https://m.media-amazon.com/images/I/615ZIxEDozL._AC_UF1000,1000_QL80_.jpg",
             "tags" : [
-                "fiction",
-                "romance",
-                "comedy"
+                "Fiction",
+                "Romance",
+                "Fantasy"
                 ]
         }
     ] 
