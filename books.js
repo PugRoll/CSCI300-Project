@@ -82,7 +82,16 @@ export function createNewBook(title, author, img_src,
         removeButton.setAttribute("type", "button");
         removeButton.value = "remove";
         removeButton.addEventListener("click", function handleClick(event) {
-            cartPrice -= Math.round(bookPrice * 100) / 100;  
+            cartPrice -= Math.round(bookPrice * 100) / 100;
+            document.innerHTML = cartPrice;
+            if(quantity > 0){
+            quantity-=1;
+            quantityElement.innerHTML = `Quantity: ${quantity}`;
+            }
+            else if(quantity <= 1){
+                td.innerHTML="";
+                bookTable.img_src = "";
+            }
         });
         td.appendChild(removeButton);
 
